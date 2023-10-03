@@ -1,27 +1,25 @@
-export const parseCsv = (csv: string, colsWithNumber: string[]) => {
+import { Camera } from "../models/camera";
+
+export const parseCsv = (csv: string): Camera[] => {
   const delimeter = ";";
+  const cameraIdRegex = new RegExp(/UTR-CM-([0-9]{3})/);
 
   const rows = csv.split("\n");
-  const headers = rows.shift().split(delimeter);
-  const numOfColums = headers.length;
+  rows.shift();
+  const filteredRows = rows.filter((r) => !r.startsWith("ERROR"));
 
-  const parsedCsv = rows.map((row) => {
+  const parsedData = filteredRows.map((row): Camera => {
+    const cameraIdExecArr = cameraIdRegex.exec(row);
+    const cameraId = cameraIdExecArr[1];
     const values = row.split(delimeter);
 
-    const data: { [key: string]: string | number } = {};
-    for (let i = 0; i < numOfColums; i++) {
-      const header = headers[i];
-      const value = values[i];
-
-      if (colsWithNumber.includes(header)) {
-        data[header] = parseFloat(value);
-      } else {
-        data[header] = value;
-      }
-    }
-
-    return data;
+    return {
+      cameraId,
+      name: values[0],
+      longitude: parseFloat(values[1]),
+      latitude: parseFloat(values[2]),
+    };
   });
 
-  return parsedCsv;
+  return parsedData;
 };
