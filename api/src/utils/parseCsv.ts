@@ -16,8 +16,8 @@ export const parseCsv = (csv: string): Camera[] => {
     return {
       cameraId,
       name: values[0],
-      longitude: parseFloat(values[1]),
-      latitude: parseFloat(values[2]),
+      latitude: parseFloat(values[1]),
+      longitude: parseFloat(values[2]),
     };
   });
 
