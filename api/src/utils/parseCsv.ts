@@ -10,7 +10,7 @@ export const parseCsv = (csv: string): Camera[] => {
 
   const parsedData = filteredRows.map((row): Camera => {
     const cameraIdExecArr = cameraIdRegex.exec(row);
-    const cameraId = cameraIdExecArr[1];
+    const cameraId = parseInt(cameraIdExecArr[1]);
     const values = row.split(delimeter);
 
     return {

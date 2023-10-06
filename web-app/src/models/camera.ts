@@ -1,6 +1,16 @@
 export interface Camera {
-  cameraId: string;
+  cameraId: number;
   name: string;
   latitude: number;
   longitude: number;
 }
+
+export type CameraType =
+  | "dividableByThree"
+  | "dividableByFive"
+  | "dividableByThreeAndFive"
+  | "other";
+
+export type SortedCameras = {
+  [key in CameraType]: Camera[];
+};

@@ -1,5 +1,6 @@
 :root {
   --header-background-color: #455a64;
+  --header-background-color-transparant: #455a641a;
   --header-color: #fff;
 }
 
@@ -26,6 +27,11 @@ a {
 
 #source a {
   font-weight: bold;
+}
+
+table th {
+  background-color: var(--header-background-color-transparant);
+  border-bottom: solid 2px var(--header-background-color);
 }
 
 table td {
@@ -59,6 +65,11 @@ h1 {
 }
 
 #cameraTableContainer {
+  overflow-y: clip;
+  overflow-x: auto;
+}
+
+#cameraTable {
   margin: 0 0 20px 0;
   width: 100%;
   padding: 0 20px;
@@ -66,35 +77,35 @@ h1 {
   vertical-align: top;
 }
 
-#cameraTableContainer > td {
+#cameraTable > td {
   width: 25%;
   text-align: center;
 }
 
-#cameraTableContainer table {
+#cameraTable table {
   width: 450px;
   margin: auto;
   height: 100%;
   border-collapse: collapse;
 }
 
-#cameraTableContainer table tbody tr {
+#cameraTable table tbody tr {
   height: 25px;
   vertical-align: middle;
 }
 
-#cameraTableContainer table tbody td {
+#cameraTable table tbody td {
   padding: 5px 0;
 }
 
-#cameraTableContainer table td:nth-child(1) {
+#cameraTable table td:nth-child(1) {
   height: 15px !important;
   margin-right: 15px;
   font-weight: bold;
   border-radius: 20px;
 }
 
-#cameraTableContainer table tr:last-child td {
+#cameraTable table tr:last-child td {
   height: 100%;
 }
 

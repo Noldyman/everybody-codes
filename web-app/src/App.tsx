@@ -7,7 +7,9 @@ function App() {
     <>
       <Header />
 
-      <HomePage />
+      <main>
+        <HomePage />
+      </main>
     </>
   );
 }

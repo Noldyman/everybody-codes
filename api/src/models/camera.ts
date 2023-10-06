@@ -1,5 +1,5 @@
 export interface Camera {
-  cameraId: string;
+  cameraId: number;
   name: string;
   latitude: number;
   longitude: number;
