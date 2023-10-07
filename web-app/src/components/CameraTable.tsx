@@ -3,9 +3,10 @@ import { sortCameras } from "../utils/sortCameras";
 
 interface Props {
   cameras: Camera[];
+  onHighlightCamera: (cameraId: number) => void;
 }
 
-export const CameraTable = ({ cameras }: Props) => {
+export const CameraTable = ({ cameras, onHighlightCamera }: Props) => {
   const sortedCameras = sortCameras(cameras);
 
   const tableBlocks: { title: string; type: CameraType; columnId: string }[] = [
@@ -16,6 +17,10 @@ export const CameraTable = ({ cameras }: Props) => {
   ];
 
   const blockColumnHeaders = ["Number", "Name", "Latitude", "Longitude"];
+
+  const highlightCamera = (cameraId: number) => {
+    onHighlightCamera(cameraId);
+  };
 
   return (
     <div id="cameraTableContainer">
@@ -37,7 +42,7 @@ export const CameraTable = ({ cameras }: Props) => {
                   </thead>
                   <tbody>
                     {sortedCameras[block.type].map((cam) => (
-                      <tr>
+                      <tr className="contentRow" onClick={() => highlightCamera(cam.cameraId)}>
                         <td>{cam.cameraId}</td>
                         <td>{cam.name}</td>
                         <td>{cam.latitude}</td>

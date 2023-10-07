@@ -2,6 +2,7 @@
   --header-background-color: #455a64;
   --header-background-color-transparant: #455a641a;
   --header-color: #fff;
+  --anchor-color: #ff6e00;
 }
 
 html,
@@ -13,7 +14,7 @@ body {
 }
 
 a {
-  color: #ff6e00;
+  color: var(--anchor-color);
 }
 
 #source {
@@ -99,7 +100,7 @@ h1 {
 }
 
 #cameraTable table td:nth-child(1) {
-  height: 15px !important;
+  height: 15px;
   margin-right: 15px;
   font-weight: bold;
   border-radius: 20px;
@@ -113,4 +114,13 @@ h1 {
   margin: auto;
   height: 520px;
   width: 100%;
+}
+
+.contentRow {
+  cursor: pointer;
+}
+
+.contentRow:hover {
+  text-decoration: underline;
+  color: var(--anchor-color);
 }
