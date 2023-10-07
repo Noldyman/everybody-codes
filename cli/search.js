@@ -28,7 +28,7 @@ const fetchCameras = async () => {
         output += `${camera.cameraId} | ${camera.name} | ${camera.latitude} | ${camera.longitude}\n`;
       });
 
-      console.log("SUCCESS".green, `${result.length} camera(s) found"`.bold, "\n\n" + output.bold);
+      console.log("SUCCESS".green, `${result.length} camera(s) found`.bold, "\n\n" + output.bold);
     }
   } catch (_) {
     console.log(

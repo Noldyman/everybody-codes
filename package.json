@@ -1,0 +1,16 @@
+{
+  "name": "everybody-codes",
+  "version": "1.0.0",
+  "description": "API, CLI and web app to to search cameras in public areas of Utrecht",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "scripts": {
+    "server": "npx nodemon api/src/server.ts",
+    "app": "cd web-app/ && npm run start"
+  }
+}
