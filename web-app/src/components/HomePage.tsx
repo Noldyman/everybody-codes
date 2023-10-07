@@ -31,7 +31,7 @@ export const HomePage = () => {
 
   return (
     <>
-      <MapContainer id="mapid">
+      <MapContainer id="map-id">
         <Map cameras={cameras} highlightedCamId={highlightedCamId} />
       </MapContainer>
 

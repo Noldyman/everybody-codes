@@ -1,8 +1,8 @@
 :root {
-  --header-background-color: #455a64;
-  --header-background-color-transparant: #455a641a;
+  --primary: #455a64;
+  --primary-transparant: #455a641a;
   --header-color: #fff;
-  --anchor-color: #ff6e00;
+  --secondary: #ff6e00;
 }
 
 html,
@@ -10,54 +10,16 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  font-size: 0.8em;
-}
-
-a {
-  color: var(--anchor-color);
-}
-
-#source {
-  background: rgba(27, 31, 35, 0.08);
-  width: fit-content;
-  padding: 8px 15px;
-  border-radius: 20px;
-  margin: 15px auto;
-  text-align: center;
-}
-
-#source a {
-  font-weight: bold;
-}
-
-table th {
-  background-color: var(--header-background-color-transparant);
-  border-bottom: solid 2px var(--header-background-color);
-}
-
-table td {
-  vertical-align: top;
-}
-
-table thead tr:nth-child(1) th {
-  height: 75px;
-  background-color: var(--header-background-color);
-  color: var(--header-color);
-  font-size: 3em;
-}
-
-table tr:nth-child(2) th {
-  text-align: left;
-  height: 25px;
+  font-size: 0.8rem;
 }
 
 header {
-  background-color: var(--header-background-color);
-  color: #fff;
+  background-color: var(--primary);
+  color: var(--header-color);
   margin-bottom: 20px;
 }
 
-h1 {
+header h1 {
   padding: 20px 0 20px 55px;
   margin: 0 0 0 20px;
   background: url("/public/video-camera-icon.png") no-repeat;
@@ -65,62 +27,71 @@ h1 {
   background-position: 0 50%;
 }
 
-#cameraTableContainer {
-  overflow-y: clip;
-  overflow-x: auto;
-}
-
-#cameraTable {
-  margin: 0 0 20px 0;
-  width: 100%;
-  padding: 0 20px;
-  height: 100%;
-  vertical-align: top;
-}
-
-#cameraTable > td {
-  width: 25%;
-  text-align: center;
-}
-
-#cameraTable table {
-  width: 450px;
-  margin: auto;
-  height: 100%;
-  border-collapse: collapse;
-}
-
-#cameraTable table tbody tr {
-  height: 25px;
-  vertical-align: middle;
-}
-
-#cameraTable table tbody td {
-  padding: 5px 0;
-}
-
-#cameraTable table td:nth-child(1) {
-  height: 15px;
-  margin-right: 15px;
+a {
+  color: var(--secondary);
   font-weight: bold;
-  border-radius: 20px;
 }
 
-#cameraTable table tr:last-child td {
-  height: 100%;
-}
-
-#mapid {
+#map-id {
   margin: auto;
   height: 520px;
   width: 100%;
 }
 
-.contentRow {
+#source {
+  background: var(--primary-transparant);
+  width: fit-content;
+  padding: 8px 15px;
+  border-radius: 20px;
+  margin: 15px auto;
+  text-align: center;
+}
+
+#camera-table-container {
+  overflow-y: clip;
+  overflow-x: auto;
+  margin-bottom: 20px;
+  padding: 0 20px 20px 20px;
+}
+
+.camera-table__sub-table-container {
+  vertical-align: top;
+}
+
+.camera-table__sub-table {
+  width: 450px;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+.camera-table__sub-table-header {
+  height: 75px;
+  background-color: var(--primary);
+  color: var(--header-color);
+  font-size: 3em;
+}
+
+.camera-table__header {
+  background-color: var(--primary-transparant);
+  border-bottom: solid 2px var(--primary);
+  text-align: left;
+  height: 1.8rem;
+}
+
+.camera-table__row {
+  height: 1.8rem;
+}
+
+.camera-table__clickable-row {
   cursor: pointer;
 }
 
-.contentRow:hover {
+.camera-table__clickable-row:hover {
+  background-color: var(--primary-transparant);
   text-decoration: underline;
-  color: var(--anchor-color);
+  color: var(--secondary);
+}
+
+.camera-table__camera-id {
+  font-weight: bold;
 }

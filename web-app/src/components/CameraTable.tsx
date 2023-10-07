@@ -23,18 +23,20 @@ export const CameraTable = ({ cameras, onHighlightCamera }: Props) => {
   };
 
   return (
-    <div id="cameraTableContainer">
-      <table id="cameraTable">
+    <div id="camera-table-container">
+      <table className="camera-table">
         <tbody>
           <tr>
             {tableBlocks.map((block) => (
-              <td>
-                <table id={block.columnId}>
+              <td className="camera-table__sub-table-container">
+                <table className="camera-table__sub-table" id={block.columnId}>
                   <thead>
                     <tr>
-                      <th colSpan={4}>{block.title}</th>
+                      <th className="camera-table__sub-table-header" colSpan={4}>
+                        {block.title}
+                      </th>
                     </tr>
-                    <tr>
+                    <tr className="camera-table__header">
                       {blockColumnHeaders.map((header) => (
                         <th>{header}</th>
                       ))}
@@ -42,8 +44,11 @@ export const CameraTable = ({ cameras, onHighlightCamera }: Props) => {
                   </thead>
                   <tbody>
                     {sortedCameras[block.type].map((cam) => (
-                      <tr className="contentRow" onClick={() => highlightCamera(cam.cameraId)}>
-                        <td>{cam.cameraId}</td>
+                      <tr
+                        className="camera-table__row camera-table__clickable-row"
+                        onClick={() => highlightCamera(cam.cameraId)}
+                      >
+                        <td className="camera-table__camera-id">{cam.cameraId}</td>
                         <td>{cam.name}</td>
                         <td>{cam.latitude}</td>
                         <td>{cam.longitude}</td>
