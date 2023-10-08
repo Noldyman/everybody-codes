@@ -9,7 +9,7 @@ export const sortCameras = (cameras: Camera[]) => {
   };
 
   cameras.forEach((cam) => {
-    const number = cam.cameraId;
+    const number = cam.number;
 
     if (number % 5 === 0 && number % 3 === 0) {
       sortedCameras.dividableByThreeAndFive.push(cam);

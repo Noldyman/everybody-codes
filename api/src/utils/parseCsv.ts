@@ -8,13 +8,14 @@ export const parseCsv = (csv: string): Camera[] => {
   rows.shift();
   const filteredRows = rows.filter((r) => !r.startsWith("ERROR"));
 
-  const parsedData = filteredRows.map((row): Camera => {
+  const parsedData = filteredRows.map((row, index): Camera => {
     const cameraIdExecArr = cameraIdRegex.exec(row);
-    const cameraId = parseInt(cameraIdExecArr[1]);
+    const cameraNumber = parseInt(cameraIdExecArr[1]);
     const values = row.split(delimeter);
 
     return {
-      cameraId,
+      id: index + 1,
+      number: cameraNumber,
       name: values[0],
       latitude: parseFloat(values[1]),
       longitude: parseFloat(values[2]),

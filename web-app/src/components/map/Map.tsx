@@ -24,7 +24,7 @@ export const Map = ({ cameras, highlightedCamId }: Props) => {
   useEffect(() => {
     if (!highlightedCamId) return;
     const highlightZoom = 18;
-    const camera = cameras.find((c) => c.cameraId === highlightedCamId);
+    const camera = cameras.find((c) => c.id === highlightedCamId);
 
     if (!camera) return;
 
@@ -36,9 +36,10 @@ export const Map = ({ cameras, highlightedCamId }: Props) => {
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {cameras.map((cam) => (
         <CameraMarker
+          key={cam.id}
           coordinates={[cam.latitude, cam.longitude]}
           cameraName={cam.name}
-          openPopup={cam.cameraId === highlightedCamId}
+          openPopup={cam.id === highlightedCamId}
         />
       ))}
     </>

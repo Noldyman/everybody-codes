@@ -25,7 +25,7 @@ const fetchCameras = async () => {
       let output = "";
 
       result.forEach((camera) => {
-        output += `${camera.cameraId} | ${camera.name} | ${camera.latitude} | ${camera.longitude}\n`;
+        output += `${camera.number} | ${camera.name} | ${camera.latitude} | ${camera.longitude}\n`;
       });
 
       console.log("SUCCESS".green, `${result.length} camera(s) found`.bold, "\n\n" + output.bold);

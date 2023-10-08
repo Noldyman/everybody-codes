@@ -47,14 +47,18 @@ a {
   text-align: center;
 }
 
-#camera-table-container {
+#container--side-scroll {
   overflow-y: clip;
   overflow-x: auto;
   margin-bottom: 20px;
   padding: 0 20px 20px 20px;
 }
 
-.camera-table__sub-table-container {
+.camera-table {
+  margin: auto;
+}
+
+.camera-table td {
   vertical-align: top;
 }
 
@@ -82,16 +86,16 @@ a {
   height: 1.8rem;
 }
 
-.camera-table__clickable-row {
+.camera-table__row--clickable {
   cursor: pointer;
 }
 
-.camera-table__clickable-row:hover {
+.camera-table__row--clickable:hover {
   background-color: var(--primary-transparant);
   text-decoration: underline;
   color: var(--secondary);
 }
 
-.camera-table__camera-id {
+.camera-table__camera-number {
   font-weight: bold;
 }

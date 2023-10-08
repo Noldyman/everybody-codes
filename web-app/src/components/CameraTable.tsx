@@ -9,11 +9,11 @@ interface Props {
 export const CameraTable = ({ cameras, onHighlightCamera }: Props) => {
   const sortedCameras = sortCameras(cameras);
 
-  const tableBlocks: { title: string; type: CameraType; columnId: string }[] = [
-    { title: "Cameras 3", type: "dividableByThree", columnId: "column3" },
-    { title: "Cameras 5", type: "dividableByFive", columnId: "column5" },
-    { title: "Cameras 3 & 5", type: "dividableByThreeAndFive", columnId: "column15" },
-    { title: "Other cameras", type: "other", columnId: "columnOther" },
+  const subTables: { title: string; type: CameraType; key: string }[] = [
+    { title: "Cameras 3", type: "dividableByThree", key: "column3" },
+    { title: "Cameras 5", type: "dividableByFive", key: "column5" },
+    { title: "Cameras 3 & 5", type: "dividableByThreeAndFive", key: "column15" },
+    { title: "Other cameras", type: "other", key: "columnOther" },
   ];
 
   const blockColumnHeaders = ["Number", "Name", "Latitude", "Longitude"];
@@ -23,32 +23,33 @@ export const CameraTable = ({ cameras, onHighlightCamera }: Props) => {
   };
 
   return (
-    <div id="camera-table-container">
+    <div id="container--side-scroll">
       <table className="camera-table">
         <tbody>
           <tr>
-            {tableBlocks.map((block) => (
-              <td className="camera-table__sub-table-container">
-                <table className="camera-table__sub-table" id={block.columnId}>
+            {subTables.map((subTable) => (
+              <td key={subTable.key}>
+                <table className="camera-table__sub-table">
                   <thead>
                     <tr>
                       <th className="camera-table__sub-table-header" colSpan={4}>
-                        {block.title}
+                        {subTable.title}
                       </th>
                     </tr>
                     <tr className="camera-table__header">
                       {blockColumnHeaders.map((header) => (
-                        <th>{header}</th>
+                        <th key={header + subTable.key}>{header}</th>
                       ))}
                     </tr>
                   </thead>
                   <tbody>
-                    {sortedCameras[block.type].map((cam) => (
+                    {sortedCameras[subTable.type].map((cam) => (
                       <tr
-                        className="camera-table__row camera-table__clickable-row"
-                        onClick={() => highlightCamera(cam.cameraId)}
+                        key={cam.id}
+                        className="camera-table__row camera-table__row--clickable"
+                        onClick={() => highlightCamera(cam.id)}
                       >
-                        <td className="camera-table__camera-id">{cam.cameraId}</td>
+                        <td className="camera-table__camera-number">{cam.number}</td>
                         <td>{cam.name}</td>
                         <td>{cam.latitude}</td>
                         <td>{cam.longitude}</td>

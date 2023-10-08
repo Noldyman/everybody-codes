@@ -2,7 +2,7 @@ import { Camera } from "../models/camera";
 
 export const getAllCameras = async () => {
   try {
-    const response = await fetch("http://localhost:3001/api/cameras/all");
+    const response = await fetch("http://localhost:3001/api/cameras");
     const result: Camera[] = await response.json();
     return result;
   } catch (_) {
