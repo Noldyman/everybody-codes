@@ -4,9 +4,11 @@ This repository is divided into three parts: an API, a CLI, and a web app. Both 
 
 ## Install dependencies
 
-Before you start, make sure to install all the dependencies. Assuming Node.js is installed, run the following command from the root directory:
+Before you start, make sure to use the right Node.js version and install the required dependencies. Assuming [node version manager (nvm)](https://github.com/nvm-sh/nvm) is installed, run the following commands from the root directory:
 
-`npm install`
+`nvm use`
+
+`npm run inst`
 
 ## API
 
